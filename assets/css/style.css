@@ -18,8 +18,12 @@ body {
   body::before {
     content: "";
     position: fixed;
-    background: #040404 url("../img/bg_marcelo.png") top right no-repeat;
+    background-color: #040404;
+    background-image: url("../img/fundo-linhas.png");
+    background-position: center center;
+    background-repeat: no-repeat;
     background-size: cover;
+    filter: hue-rotate(-35deg) saturate(1.2);
     left: 0;
     right: 0;
     top: 0;
@@ -1029,3 +1033,67 @@ body {
   .credits a:hover {
     color: #fff;
   }
+/* Link da seção Sobre, seguindo as cores do portfólio. */
+.about-project-link {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 10px 18px;
+  border: 1px solid #18d26e;
+  color: #fff;
+  transition: background-color .2s ease;
+}
+.about-project-link:hover, .about-project-link:focus-visible {
+  background-color: #18d26e;
+  color: #040404;
+}
+
+/* Projetos: cartões acessíveis e detalhes sempre visíveis. */
+.portfolio .project-tile { display: block; height: 100%; overflow: hidden; background: #17211b; border: 1px solid #34443a; color: #fff; transition: border-color .2s, transform .2s; }
+.portfolio .project-tile:hover, .portfolio .project-tile:focus-visible { color: #fff; border-color: #18d26e; transform: translateY(-3px); outline: none; }
+.portfolio .project-cover { position: relative; overflow: hidden; background: #0c110d; }
+.portfolio .project-cover img { width: 100%; aspect-ratio: 16 / 10; display: block; object-fit: cover; object-position: top; opacity: .78; transition: opacity .2s, transform .3s; }
+.portfolio .project-tile:hover img, .portfolio .project-tile:focus-visible img { opacity: 1; transform: scale(1.025); }
+.portfolio .project-cover > span { position: absolute; bottom: 12px; left: 12px; padding: 7px 9px; background: #101b14; color: #bfeccc; font-size: 9px; font-weight: 700; letter-spacing: .08em; }
+.portfolio .project-tile-body { padding: 23px; }
+.portfolio .project-tile h3 { font-size: 19px; font-weight: 700; margin: 0 0 10px; }
+.portfolio .project-tile h3 span { float: right; color: #18d26e; }
+.portfolio .project-tile p { color: #b6c4ba; font-size: 13px; line-height: 1.6; min-height: 42px; margin: 0 0 20px; }
+.portfolio .project-more { color: #18d26e; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+.portfolio .project-more span { font-size: 15px; margin-left: 5px; }
+.glightbox-container .gslide-media { background: #111713; }
+.services .icon-box, .contact .info-box { border: 1px solid rgba(255,255,255,.08); }
+a:focus-visible { outline: 2px solid #18d26e; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .portfolio .project-tile, .portfolio .project-cover img { transition: none; } }
+
+/* Ajustes de leitura nas seções do portfólio. */
+.section-title p { line-height: 1.2; }
+.about .content p, .resume .resume-item p, .resume .resume-item li { line-height: 1.7; }
+.resume .resume-item { padding-bottom: 22px; }
+.resume .resume-item h5 { background: rgba(24, 210, 110, .12); color: #d4f6df; }
+.interests .icon-box { height: 100%; min-height: 80px; border: 1px solid rgba(255,255,255,.07); }
+.interests .icon-box h3 { line-height: 1.5; }
+.services .icon-box { width: 100%; transition: background .2s, border-color .2s; }
+.services .icon-box:hover { border-color: rgba(24,210,110,.5); }
+.contact .info-box { height: 100%; overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: reduce) { .services .icon-box, .about-project-link { transition: none; } }
+
+/* Capas ilustradas, uma para cada projeto. */
+.portfolio .project-cover .project-art {
+  position: static;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  background-image: url('../img/portfolio/capas-projetos.png');
+  background-size: 300% 200%;
+  background-repeat: no-repeat;
+  transition: transform .3s ease;
+}
+.portfolio .project-cover .project-art-1 { background-position: 0% 0%; }
+.portfolio .project-cover .project-art-2 { background-position: 50% 0%; }
+.portfolio .project-cover .project-art-3 { background-position: 100% 0%; }
+.portfolio .project-cover .project-art-4 { background-position: 0% 100%; }
+.portfolio .project-cover .project-art-5 { background-position: 50% 100%; }
+.portfolio .project-cover .project-art-6 { background-position: 100% 100%; }
+.portfolio .project-tile:hover .project-art, .portfolio .project-tile:focus-visible .project-art { transform: scale(1.025); }
+@media (prefers-reduced-motion: reduce) { .portfolio .project-cover .project-art { transition: none; } }
